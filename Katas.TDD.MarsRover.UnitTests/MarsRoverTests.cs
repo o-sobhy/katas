@@ -1,5 +1,6 @@
-namespace Katas.TDD.MarsRover.UnitTests;
+using Katas.TDD.MarsRover;
 
+namespace Katas.TDD.MarsRover.UnitTests;
 public class MarsRoverTests
 {
     [Theory]
@@ -10,7 +11,7 @@ public class MarsRoverTests
     public void Execute_WhenSingleLeftCommandReceived_ShouldRotate_AndNotMove(string initialDirection, string expectedDirection)
     {
         // Arrange
-        var rover = new MarsRover(initialDirection);
+        var rover = new MarsRover{ X = 0, Y = 0, Direction = "N" };
         
         // Act
         rover.Execute("L");
