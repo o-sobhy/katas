@@ -30,4 +30,17 @@ public class FizzBuzzTests
         // Assert
         Assert.Equal("FizzBuzz", result);
     }
+    
+    [Fact]
+    public void Solve_WhenMultipleOfThreeOnly_ShouldReturnFizz()
+    {
+        // Arrange
+        int number = 9;
+        
+        // Act
+        string result = FizzBuzzSolver.Solve(number);
+        
+        // Assert
+        Assert.Equal("Fizz", result);
+    }
 }
