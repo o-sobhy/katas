@@ -6,48 +6,51 @@ public class MarsRover()
     public required int Y { get; set; }
     public required string Direction { get; set; }
     
-    public void Execute(string command)
+    public void Execute(string commands)
     {
-        if (command.Equals("L"))
+        foreach (var cmd in commands)
         {
-            Direction = Direction switch
+            if (cmd == 'L')
             {
-                "N" => "W",
-                "W" => "S",
-                "S" => "E",
-                "E" => "N",
-                _ => Direction
-            };
-        }
+                Direction = Direction switch
+                {
+                    "N" => "W",
+                    "W" => "S",
+                    "S" => "E",
+                    "E" => "N",
+                    _ => Direction
+                };
+            }
         
-        else if (command.Equals("R"))
-        {
-            Direction = Direction switch
+            else if (cmd == 'R')
             {
-                "N" => "E",
-                "E" => "S",
-                "S" => "W",
-                "W" => "N",
-                _ => Direction
-            };
-        }
+                Direction = Direction switch
+                {
+                    "N" => "E",
+                    "E" => "S",
+                    "S" => "W",
+                    "W" => "N",
+                    _ => Direction
+                };
+            }
         
-        else if (command.Equals("M"))
-        {
-            switch (Direction)
+            else if (cmd == 'M')
             {
-                case "N":
-                    Y += 1;
-                    break;
-                case "E":
-                    X += 1;
-                    break;
-                case "S":
-                    Y -= 1;
-                    break;
-                case "W":
-                    X -= 1;
-                    break;
+                switch (Direction)
+                {
+                    case "N":
+                        Y += 1;
+                        break;
+                    case "E":
+                        X += 1;
+                        break;
+                    case "S":
+                        Y -= 1;
+                        break;
+                    case "W":
+                        X -= 1;
+                        break;
+                }
             }
         }
     }
