@@ -1,4 +1,6 @@
-﻿namespace Katas.TDD.MarsRover;
+﻿using Microsoft.Win32.SafeHandles;
+
+namespace Katas.TDD.MarsRover;
 
 public class MarsRover()
 {
@@ -9,6 +11,7 @@ public class MarsRover()
     public int MaximumX { get; set; } = 10;
     public int MinimumY { get; set; } = -10;
     public int MaximumY { get; set; } = 10;
+    public List<(int X, int Y)> Obstacles { get; set; } = new List<(int X, int Y)>();
     
     public string Execute(string commands)
     {
@@ -40,21 +43,30 @@ public class MarsRover()
         
             else if (cmd == 'M')
             {
+                var possibleX = X;
+                var possibleY = Y;
+                
                 switch (Direction)
                 {
                     case "N":
-                        Y = Y + 1 > MaximumY ? MinimumY : Y + 1;
+                        possibleY = Y + 1 > MaximumY ? MinimumY : Y + 1;
                         break;
                     case "E":
-                        X = X + 1> MaximumX ? MinimumX : X + 1;
+                        possibleX = X + 1 > MaximumX ? MinimumX : X + 1;
                         break;
                     case "S":
-                        Y = Y - 1 < MinimumY ? MaximumY : Y - 1;
+                        possibleY = Y - 1 < MinimumY ? MaximumY : Y - 1;
                         break;
                     case "W":
-                        X = X - 1 < MinimumX ? MaximumX : X - 1;
+                        possibleX = X - 1 < MinimumX ? MaximumX : X - 1;
                         break;
                 }
+
+                if (Obstacles.Contains((possibleX, possibleY)))
+                    return $"O:{X}:{Y}:{Direction}";
+                
+                X = possibleX;
+                Y = possibleY;
             }
         }
         
