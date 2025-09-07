@@ -17,4 +17,17 @@ public class FizzBuzzTests
         // Assert
         Assert.Equal("7", result);
     }
+    
+    [Fact]
+    public void Solve_WhenMultipleOfThreeAndFive_ShouldReturnFizzBuzz()
+    {
+        // Arrange
+        int number = 15;
+        
+        // Act
+        string result = Solve(number);
+        
+        // Assert
+        Assert.Equal("FizzBuzz", result);
+    }
 }
