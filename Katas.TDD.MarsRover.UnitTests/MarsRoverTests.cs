@@ -14,12 +14,10 @@ public class MarsRoverTests
         var rover = new MarsRover{ X = 0, Y = 0, Direction = initialDirection };
         
         // Act
-        rover.Execute("L");
+        var loc = rover.Execute("L");
         
         // Assert
-        Assert.Equal(expectedDirection, rover.Direction);
-        Assert.Equal(0, rover.X);
-        Assert.Equal(0, rover.Y);
+        Assert.Equal($"0:0:{expectedDirection}", loc);
     }
 
     [Theory]
@@ -34,12 +32,10 @@ public class MarsRoverTests
         var rover = new MarsRover { X = 0, Y = 0, Direction = initialDirection };
 
         // Act
-        rover.Execute("R");
+        var loc = rover.Execute("R");
 
         // Assert
-        Assert.Equal(expectedDirection, rover.Direction);
-        Assert.Equal(0, rover.X);
-        Assert.Equal(0, rover.Y);
+        Assert.Equal($"0:0:{expectedDirection}", loc);
     }
 
     [Theory]
@@ -53,12 +49,10 @@ public class MarsRoverTests
         var rover = new MarsRover { X = 0, Y = 0, Direction = initialDirection };
         
         // Act
-        rover.Execute("M");
+        var loc = rover.Execute("M");
         
         // Assert
-        Assert.Equal(initialDirection, rover.Direction);
-        Assert.Equal(expectedX, rover.X);
-        Assert.Equal(expectedY, rover.Y);
+        Assert.Equal($"{expectedX}:{expectedY}:{initialDirection}", loc);
     }
     
     [Fact]
@@ -69,12 +63,10 @@ public class MarsRoverTests
         var commands = "MMRMMRMRRM";
         
         // Act
-        rover.Execute(commands);
+        var loc = rover.Execute(commands);
         
         // Assert
-        Assert.Equal(2, rover.X);
-        Assert.Equal(2, rover.Y);
-        Assert.Equal("N", rover.Direction);
+        Assert.Equal($"2:2:N", loc);
     }
     
     [Theory]
@@ -86,12 +78,10 @@ public class MarsRoverTests
         var rover = new MarsRover { X = 0, Y = 0, Direction = "N" };
         
         // Act
-        rover.Execute(commands);
+        var loc = rover.Execute(commands);
         
         // Assert
-        Assert.Equal("N", rover.Direction);
-        Assert.Equal(0, rover.X);
-        Assert.Equal(0, rover.Y);
+        Assert.Equal($"0:0:N", loc);
     }
     
     [Theory]
@@ -105,10 +95,9 @@ public class MarsRoverTests
         var rover = new MarsRover { X = initialX, Y = initialY, Direction = initialDirection, MinimumX = 0, MaximumX = 10, MinimumY = 0, MaximumY = 10 };
         
         // Act
-        rover.Execute("M");
+        var loc = rover.Execute("M");
         
         // Assert
-        Assert.Equal(expectedX, rover.X);
-        Assert.Equal(expectedY, rover.Y);
+        Assert.Equal($"{expectedX}:{expectedY}:{initialDirection}", loc);
     }
 }
