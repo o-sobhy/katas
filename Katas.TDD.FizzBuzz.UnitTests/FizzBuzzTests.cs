@@ -43,4 +43,17 @@ public class FizzBuzzTests
         // Assert
         Assert.Equal("Fizz", result);
     }
+    
+    [Fact]
+    public void Solve_WhenMultipleOfFiveOnly_ShouldReturnBuzz()
+    {
+        // Arrange
+        int number = 10;
+
+        // Act
+        string result = FizzBuzzSolver.Solve(number);
+
+        // Assert
+        Assert.Equal("Buzz", result);
+    }
 }
