@@ -60,4 +60,20 @@ public class MarsRoverTests
         Assert.Equal(expectedX, rover.X);
         Assert.Equal(expectedY, rover.Y);
     }
+    
+    [Fact]
+    public void Execute_WhenMultipleCommandsReceived_ShouldProcessCommandsInOrder()
+    {
+        // Arrange
+        var rover = new MarsRover { X = 0, Y = 0, Direction = "N" };
+        var commands = "MMRMMRMRRM";
+        
+        // Act
+        rover.Execute(commands);
+        
+        // Assert
+        Assert.Equal(2, rover.X);
+        Assert.Equal(2, rover.Y);
+        Assert.Equal("S", rover.Direction);
+    }
 }
