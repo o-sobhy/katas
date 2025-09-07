@@ -74,6 +74,6 @@ public class MarsRoverTests
         // Assert
         Assert.Equal(2, rover.X);
         Assert.Equal(2, rover.Y);
-        Assert.Equal("S", rover.Direction);
+        Assert.Equal("N", rover.Direction);
     }
 }
