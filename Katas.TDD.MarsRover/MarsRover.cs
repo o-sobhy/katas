@@ -10,7 +10,7 @@ public class MarsRover()
     public int MinimumY { get; set; } = -10;
     public int MaximumY { get; set; } = 10;
     
-    public void Execute(string commands)
+    public string Execute(string commands)
     {
         foreach (var cmd in commands)
         {
@@ -57,6 +57,8 @@ public class MarsRover()
                 }
             }
         }
+        
+        return $"{X}:{Y}:{Direction}";
     }
     public static void Main()
     {
