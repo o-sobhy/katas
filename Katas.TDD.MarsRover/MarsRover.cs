@@ -5,6 +5,10 @@ public class MarsRover()
     public required int X { get; set; }
     public required int Y { get; set; }
     public required string Direction { get; set; }
+    public int MinimumX { get; set; } = 0;
+    public int MaximumX { get; set; } = 10;
+    public int MinimumY { get; set; } = 0;
+    public int MaximumY { get; set; } = 10;
     
     public void Execute(string commands)
     {
@@ -39,16 +43,16 @@ public class MarsRover()
                 switch (Direction)
                 {
                     case "N":
-                        Y += 1;
+                        Y = Y + 1 > MaximumY ? MinimumY : Y + 1;
                         break;
                     case "E":
-                        X += 1;
+                        X = X + 1> MaximumX ? MinimumX : X + 1;
                         break;
                     case "S":
-                        Y -= 1;
+                        Y = Y - 1 < MinimumY ? MaximumY : Y - 1;
                         break;
                     case "W":
-                        X -= 1;
+                        X = X - 1 < MinimumX ? MaximumX : X - 1;
                         break;
                 }
             }
