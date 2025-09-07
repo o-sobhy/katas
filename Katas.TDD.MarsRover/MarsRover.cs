@@ -31,6 +31,25 @@ public class MarsRover()
                 _ => Direction
             };
         }
+        
+        else if (command.Equals("M"))
+        {
+            switch (Direction)
+            {
+                case "N":
+                    Y += 1;
+                    break;
+                case "E":
+                    X += 1;
+                    break;
+                case "S":
+                    Y -= 1;
+                    break;
+                case "W":
+                    X -= 1;
+                    break;
+            }
+        }
     }
     public static void Main()
     {
