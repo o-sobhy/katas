@@ -2,6 +2,10 @@
 
 public class FizzBuzzSolver
 {
+    public static string Solve(int number)
+    {
+        return number.ToString();
+    }
     
     public static void Main()
     {
