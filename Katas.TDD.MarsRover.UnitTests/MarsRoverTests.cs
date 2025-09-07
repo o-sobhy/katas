@@ -41,4 +41,23 @@ public class MarsRoverTests
         Assert.Equal(0, rover.X);
         Assert.Equal(0, rover.Y);
     }
+
+    [Theory]
+    [InlineData("N", 0, 1)]
+    [InlineData("E", 1, 0)]
+    [InlineData("S", 0, -1)]
+    [InlineData("W", -1, 0)]
+    public void Execute_WhenMoveCommandReceived_ShouldMoveForwardAndNotRotate(string initialDirection, int expectedX, int expectedY)
+    {
+        // Arrange
+        var rover = new MarsRover { X = 0, Y = 0, Direction = initialDirection };
+        
+        // Act
+        rover.Execute("M");
+        
+        // Assert
+        Assert.Equal(initialDirection, rover.Direction);
+        Assert.Equal(expectedX, rover.X);
+        Assert.Equal(expectedY, rover.Y);
+    }
 }
