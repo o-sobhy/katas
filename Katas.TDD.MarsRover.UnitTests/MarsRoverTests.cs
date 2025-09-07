@@ -102,4 +102,18 @@ public class MarsRoverTests
         // Assert
         Assert.Equal($"{expectedX}:{expectedY}:{expectedDirection}", loc);
     }
+    
+    [Fact]
+    public void Execute_WhenObstacleEncountered_ShouldStopBeforeObstacle()
+    {
+        // Arrange
+        var rover = new MarsRover { X = 0, Y = 0, Direction = "N", Obstacles = new List<(int X, int Y)> { (1, 3) }};
+        var commands = "RMLMMM";
+        
+        // Act
+        var loc = rover.Execute(commands);
+        
+        // Assert
+        Assert.Equal($"O:1:2:N", loc);
+    }
 }
