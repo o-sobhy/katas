@@ -5,9 +5,9 @@ public class MarsRover()
     public required int X { get; set; }
     public required int Y { get; set; }
     public required string Direction { get; set; }
-    public int MinimumX { get; set; } = 0;
+    public int MinimumX { get; set; } = -10;
     public int MaximumX { get; set; } = 10;
-    public int MinimumY { get; set; } = 0;
+    public int MinimumY { get; set; } = -10;
     public int MaximumY { get; set; } = 10;
     
     public void Execute(string commands)

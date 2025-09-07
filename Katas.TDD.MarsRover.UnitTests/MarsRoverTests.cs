@@ -97,8 +97,8 @@ public class MarsRoverTests
     [Theory]
     [InlineData(5, 10, "N", 5, 0)]
     [InlineData(10, 5, "E", 0, 5)]
-    [InlineData(5, 0, "S", 5, 10)]
-    [InlineData(0, 5, "W", 10, 5)]
+    [InlineData(5, -10, "S", 5, 10)]
+    [InlineData(-10, 5, "W", 10, 5)]
     public void Execute_WhenMovingBeyondGridBoundaries_ShouldWrapAround(int initialX, int initialY, string initialDirection, int expectedX, int expectedY)
     {
         // Arrange
