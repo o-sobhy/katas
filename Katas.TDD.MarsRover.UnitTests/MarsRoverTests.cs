@@ -93,4 +93,22 @@ public class MarsRoverTests
         Assert.Equal(0, rover.X);
         Assert.Equal(0, rover.Y);
     }
+    
+    [Theory]
+    [InlineData(5, 10, "N", 5, 0)]
+    [InlineData(10, 5, "E", 0, 5)]
+    [InlineData(5, 0, "S", 5, 10)]
+    [InlineData(0, 5, "W", 10, 5)]
+    public void Execute_WhenMovingBeyondGridBoundaries_ShouldWrapAround(int initialX, int initialY, string initialDirection, int expectedX, int expectedY)
+    {
+        // Arrange
+        var rover = new MarsRover { X = initialX, Y = initialY, Direction = initialDirection, MinimumX = 0, MaximumX = 10, MinimumY = 0, MaximumY = 10 };
+        
+        // Act
+        rover.Execute("M");
+        
+        // Assert
+        Assert.Equal(expectedX, rover.X);
+        Assert.Equal(expectedY, rover.Y);
+    }
 }
