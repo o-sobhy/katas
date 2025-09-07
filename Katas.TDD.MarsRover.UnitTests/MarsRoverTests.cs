@@ -76,4 +76,21 @@ public class MarsRoverTests
         Assert.Equal(2, rover.Y);
         Assert.Equal("N", rover.Direction);
     }
+    
+    [Theory]
+    [InlineData("LLLL")]
+    [InlineData("RRRR")]
+    public void Execute_WhenFourIdenticalRotationsReceived_ShouldReturnToInitialDirection(string commands)
+    {
+        // Arrange
+        var rover = new MarsRover { X = 0, Y = 0, Direction = "N" };
+        
+        // Act
+        rover.Execute(commands);
+        
+        // Assert
+        Assert.Equal("N", rover.Direction);
+        Assert.Equal(0, rover.X);
+        Assert.Equal(0, rover.Y);
+    }
 }
