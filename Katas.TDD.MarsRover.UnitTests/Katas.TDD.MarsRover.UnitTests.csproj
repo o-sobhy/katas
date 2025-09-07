@@ -22,6 +22,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Katas.TDD.FizzBuzz\Katas.TDD.FizzBuzz.csproj" />
+      <ProjectReference Include="..\Katas.TDD.MarsRover\Katas.TDD.MarsRover.csproj" />
     </ItemGroup>
 
 </Project>

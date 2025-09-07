@@ -11,7 +11,7 @@ public class MarsRoverTests
     public void Execute_WhenSingleLeftCommandReceived_ShouldRotate_AndNotMove(string initialDirection, string expectedDirection)
     {
         // Arrange
-        var rover = new MarsRover{ X = 0, Y = 0, Direction = "N" };
+        var rover = new MarsRover{ X = 0, Y = 0, Direction = initialDirection };
         
         // Act
         rover.Execute("L");
