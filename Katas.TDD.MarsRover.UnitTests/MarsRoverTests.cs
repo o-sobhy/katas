@@ -47,12 +47,13 @@ public class MarsRoverTests
     {
         // Arrange
         var rover = new MarsRover { X = 0, Y = 0, Direction = initialDirection };
+        var expectedDirection = initialDirection;
         
         // Act
         var loc = rover.Execute("M");
         
         // Assert
-        Assert.Equal($"{expectedX}:{expectedY}:{initialDirection}", loc);
+        Assert.Equal($"{expectedX}:{expectedY}:{expectedDirection}", loc);
     }
     
     [Fact]
@@ -93,11 +94,12 @@ public class MarsRoverTests
     {
         // Arrange
         var rover = new MarsRover { X = initialX, Y = initialY, Direction = initialDirection, MinimumX = 0, MaximumX = 10, MinimumY = 0, MaximumY = 10 };
+        var expectedDirection = initialDirection;
         
         // Act
         var loc = rover.Execute("M");
         
         // Assert
-        Assert.Equal($"{expectedX}:{expectedY}:{initialDirection}", loc);
+        Assert.Equal($"{expectedX}:{expectedY}:{expectedDirection}", loc);
     }
 }
