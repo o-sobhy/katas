@@ -7,13 +7,13 @@ public class MarsRoverTests
     [InlineData("W", "S")]
     [InlineData("S", "E")]
     [InlineData("E", "N")]
-    public void Solve_WhenSingleLeftCommandReceived_ShouldRotate_AndNotMove(string initialDirection, string expectedDirection)
+    public void Execute_WhenSingleLeftCommandReceived_ShouldRotate_AndNotMove(string initialDirection, string expectedDirection)
     {
         // Arrange
         var rover = new MarsRover(initialDirection);
         
         // Act
-        rover.ExecuteCommand("L");
+        rover.Execute("L");
         
         // Assert
         Assert.Equal(expectedDirection, rover.Direction);
